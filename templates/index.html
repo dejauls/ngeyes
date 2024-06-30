@@ -1,0 +1,702 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/output.css" rel="stylesheet">
+    <title>Hello!</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+</head>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<body class="bg-zinc-800 overflow-x-hidden">
+    <div id="wrapper" class="">
+        <section
+            class="relative bg-[url('/src/images/logo/fotobatubata.webp')] bg-fixed w-screen h-svh bg-cover bg-center">
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-gray-800 via-gray-800/60 to-transparent">
+
+
+                <div class="mt-32 px-5 md:px-20 w-full h-full mb-5 xl:px-52">
+                    <!-- <div id="" class="">
+                        <i class="fa fa-calendar"></i>&nbsp;
+                        <span></span> <i class="fa fa-caret-down"></i>
+                    </div> -->
+
+                    <ul class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow-3xl rounded-lg">
+                            <i class='bx bxl-instagram text-4xl bg-pink-100 text-pink-600 p-2 rounded-full'></i>
+                            <div class="text-black  ">
+                                <h3 class="text-2xl font-bold" id="instagramCount">Loading...</h3>
+                                <p>Instagram</p>
+                            </div>
+                        </li>
+
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                            <i class='bx bxl-whatsapp text-4xl bg-green-100 text-green-600 p-2 rounded-full'></i>
+                            <div class="text-black  ">
+                                <h3 class="text-2xl font-bold" id="whatsappCount">Loading...</h3>
+                                <p>Whatsapp</p>
+                            </div>
+                        </li>
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                            <i class='bx bxl-tiktok text-4xl bg-black/80 text-white p-2 rounded-full'></i>
+                            <div class="text-black ">
+                                <h3 class="text-2xl font-bold" id="tiktokCount">Loading...</h3>
+                                <p>Tiktok</p>
+                            </div>
+                        </li>
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                            <i class='bx bxl-youtube text-4xl bg-red-100 text-red-600 p-2 rounded-full'></i>
+                            <div class="text-black ">
+                                <h3 class="text-2xl font-bold" id="youtubeCount">Loading...</h3>
+                                <p>Youtube</p>
+                            </div>
+                        </li>
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                            <i class='bx bxl-chrome text-4xl bg-blue-100 text-blue-600 p-2 rounded-full'></i>
+                            <div class="text-black">
+                                <h3 class="text-2xl font-bold" id="websiteCount">Loading...</h3>
+                                <p>Website</p>
+                            </div>
+                        </li>
+                        <li class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                            <i class='bx bxs-file-archive text-4xl bg-gray-100 text-gray-600 p-2 rounded-full'></i>
+                            <div class="text-black ">
+                                <h3 class="text-2xl font-bold" id="beritaCount">Loading...</h3>
+                                <p>Berita</p>
+                            </div>
+                        </li>
+                        <li class=" bg-zinc-100 p-4 flex items-center space-x-4 shadow-lg shadow-amber-600 rounded-lg">
+                            <i class='bx bx-task text-4xl bg-yellow-100 text-yellow-600 p-2 rounded-full'></i>
+                            <div class="text-black ">
+                                <h3 class="text-2xl font-bold" id="artikelCount">Loading...</h3>
+                                <p>Why Reclea</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-3">
+                            <div class="relative">
+                                <input type="text" id="reportrange"
+                                    class="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white/80 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder=" " />
+                                <label for="reportrange"
+                                    class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Pilih
+                                    tanggal</label>
+                            </div>
+
+                            <div class="bg-white/80 rounded-lg p-10 h-fit">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <input type="month" id="month-picker"
+                                class="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white/80 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " />
+
+                            <div class="bg-white/80 rounded-lg p-10 h-fit" id="compare-container">
+                                <canvas id="myChartCompare"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Placeholder for yearly comparison chart -->
+                        <div class="flex flex-col gap-3">
+                            <input type="number" id="year-picker"
+                                class="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white/80 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " />
+
+                            <div class="bg-white/80 rounded-lg p-10 h-fit" id="yearly-comparison-container">
+                                <canvas id="myChartYearlyComparison"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+    </div>
+    </section>
+
+    <!-- <section class="relative bg-gradient-to-t from-black to-gray-800 p-5">
+            <div id="particles2" class="w-full h-full absolute inset-0"></div>
+            <div class="w-full flex flex-row justify-center">
+                <div
+                    class="lg:w-[1200px] md:w-[864px] sm:w-[608px] ssm:w-full ssm:px-10 xs:w-[280px] lg:px-20 md:px-0 sm:px-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 relative gap-5">
+
+                        <div class="flex flex-col justify-center lg:gap-12 md:gap-10 gap-6">
+                            <p class="font-montserrat text-xl text-white text-right" data-aos="zoom-y-out"
+                                data-aos-delay="0">
+                                /About Us
+                            </p>
+                            <h3 class="text-white text-right font-montserrat font-bold text-4xl lg:text-[80px] md:text-[64px] sm:text-[64px] mb-2 leading-tight"
+                                data-aos="zoom-y-out" data-aos-delay="150">
+                                Reclea Brick<span class="align-top" style="font-size: 1.5rem;">®</span>
+                            </h3>
+                            <div id="particles2"
+                                class="text-white md:text-right font-montserrat font-normal text-xs text-justify lg:text-2xl md:text-xl sm:text-xl leading-6 md:leading-8"
+                                data-aos="zoom-y-out" data-aos-delay="300">
+                                <p>
+                                    Reclea Brick telah berinovasi membawa konsep ramah lingkungan. Menciptakan bahan
+                                    material bangunan terbaik yang berasal dari semen dan sisa abu pembakaran yang
+                                    kemudian diolah dengan teknologi canggih yang berasal
+                                    dari negara maju. Bahan utama Bata Reclea Brick memiliki daya rekat yang tinggi
+                                    sehingga
+                                    menjadikan bata
+                                    Reclea Brick lebih kuat dan tidak mudah hancur.
+                                </p>
+                                <p>&nbsp;</p>
+                                <p>
+                                    Reclea Brick telah melakukan uji coba laboratorium dan telah lulus uji sertifikasi
+                                    standar material bangunan.
+                                    Direktorat Pengelolaan Limbah B3 & Limbah Non B3 KLHK Jakarta telah menyatakan Bata
+                                    Premium Reclea
+                                    Brick sudah Memenuhi Keamanan, Sesuai Peraturan Perundangan, dan Memenuhi Syarat SNI
+                                    pada tanggal 6 Desember 2021.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+    </div>
+
+    <div id="offscreen-nav-container"
+        class="fixed top-0 left-0 w-screen h-svh bg-stone-900 z-10 flex flex-col justify-between -translate-x-full md:hidden duration-300">
+        <div class="flex flex-col gap-10 p-5">
+            <div class="flex justify-between text-white">
+                <div class=""></div>
+                <div class=""></div>
+            </div>
+            <ul class="flex flex-col gap-5 p-5">
+                <li href="javascript:void(0)" class="relative group">
+                    <a href="index.html"
+                        class="font-semibold text-stone-300 group-hover:text-stone-200 text-xl duration-300">
+                        Home
+                    </a>
+                    <div
+                        class="absolute -bottom-2 left-0 w-0 duration-500 group-hover:w-full h-1 group-hover:bg-stone-200 bg-stone-100">
+                    </div>
+                </li>
+                <li href="javascript:void(0)" class="relative group">
+                    <a href="about.html"
+                        class="font-semibold text-stone-300 group-hover:text-stone-200 text-xl duration-300">
+                        About
+                    </a>
+                    <div
+                        class="absolute -bottom-2 left-0 w-0 duration-500 group-hover:w-full h-1 group-hover:bg-stone-200 bg-stone-100">
+                    </div>
+                </li>
+                <li href="javascript:void(0)" class="relative group">
+                    <a href="proyek.html"
+                        class="font-semibold text-stone-300 group-hover:text-stone-200 text-xl duration-300">
+                        Proyek
+                    </a>
+                    <div
+                        class="absolute -bottom-2 left-0 w-0 duration-500 group-hover:w-full h-1 group-hover:bg-stone-200 bg-stone-100">
+                    </div>
+                </li>
+                <li href="javascript:void(0)" class="relative group">
+                    <a href="artikel.html"
+                        class="font-semibold text-stone-300 group-hover:text-stone-200 text-xl duration-300">
+                        Artikel
+                    </a>
+                    <div
+                        class="absolute -bottom-2 left-0 w-0 duration-500 group-hover:w-full h-1 group-hover:bg-stone-200 bg-stone-100">
+                    </div>
+                </li>
+                <li class="relative group">
+                    <a href="#contact" onclick="toggleSideNav(false)"
+                        class="font-semibold text-stone-300 group-hover:text-stone-200 text-xl duration-300">
+                        Kontak Kami
+                    </a>
+                    <div
+                        class="absolute -bottom-2 left-0 w-0 duration-500 group-hover:w-full h-1 group-hover:bg-stone-200 bg-stone-100">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div
+            class="text-white text-xs font-light md:font-normal md:text-base text-center p-5 border-t border-stone-600 ">
+            CopyRight &copy; 2024 Recleabrick. All Rights Reserved designed by
+            <a href="https://www.instagram.com/ninjafly.id/"
+                class="underline italic transition-transform duration-300 hover:scale-110 hover:text-red-700">Ninjafly.id</a>
+        </div>
+    </div>
+
+    <div id="scrollToTopBtn"
+        class="w-max-xs md:w-fit rounded-full border border-white p-3 md:p-5 fixed bottom-10 md:bottom-20 bg-black/50 left-5 scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="h-6 w-6 md:h-8 md:w-8 stroke-white">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+        </svg>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            // Show button when user scrolls down 100px from the top
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+
+            // Scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="/static/mouse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/static/particle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/instagram_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('instagramCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/whatsapp_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('whatsappCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/tiktok_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('tiktokCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/youtube_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('youtubeCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/website_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('websiteCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/berita_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('beritaCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/artikel_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('artikelCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            feather.replace();
+            const typedElements = document.querySelectorAll(".typed-text");
+
+            const options = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.5, // Adjust the threshold as needed
+            };
+
+            const handleTypedIntersection = (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const strings = JSON.parse(
+                            entry.target.getAttribute("data-strings")
+                        );
+                        new Typed(entry.target, {
+                            // Use entry.target directly instead of querying by ID
+                            strings: strings, // Add a delay for each string
+                            typeSpeed: 75,
+                            backSpeed: 50,
+                            startDelay: 500,
+                            backDelay: 3000,
+                            loop: true,
+                            smartBackspace: true, // Default value
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(
+                handleTypedIntersection,
+                options
+            );
+
+            typedElements.forEach((element) => {
+                observer.observe(element);
+            });
+
+            // const countUp = new CountUp('bata-terjual', 5234);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init();
+
+            const checkbox = document.getElementById("check-mobilenav");
+            const navContainer = document.getElementById("offscreen-nav-container");
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    navContainer.classList.remove("-translate-x-full");
+                    navContainer.classList.add("translate-x-0");
+                } else {
+                    navContainer.classList.remove("translate-x-0");
+                    navContainer.classList.add("-translate-x-full");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const toggleSideNav = (isOpen) => {
+            const checkbox = document.getElementById('check-mobilenav');
+            checkbox.checked = isOpen;
+            const navContainer = document.getElementById('offscreen-nav-container');
+
+            navContainer.classList.toggle('-translate-x-full', !isOpen);
+            navContainer.classList.toggle('translate-x-0', isOpen);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init();
+
+            const checkbox = document.getElementById('check-mobilenav');
+
+            checkbox.addEventListener('change', () => {
+                toggleSideNav(checkbox.checked);
+            });
+        });
+    </script>
+
+    <script>
+        let myChart;
+
+        function renderChart(chartId, platformCounts) {
+            const ctx = document.getElementById(chartId).getContext('2d');
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const labels = Object.keys(platformCounts);
+            const data = Object.values(platformCounts);
+
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: [
+                            'rgb(255, 51, 0)',
+                            'rgba(18, 161, 49, 0.9)',
+                            'rgba(34, 40, 34, 1.0)',
+                            'rgba(210, 38, 30, 1.0)',
+                            'rgba(95, 150, 198, 0.9)',
+                            'rgba(85, 86, 47, 0.75)',
+                            'rgba(107, 184, 35, 1.0)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 51, 0)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(34, 40, 34, 1.0)',
+                            'rgba(210, 38, 30, 1.0)',
+                            'rgba(95, 150, 198, 0.9)',
+                            'rgba(85, 86, 47, 0.75)',
+                            'rgba(107, 184, 35, 1.0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'black', // Warna angka (ticks) sumbu Y
+                                font: {
+                                    weight: 'bold'
+                                },
+                                beginAtZero: true,
+                                ticks: {
+                                    min: 10,
+                                    max: 20,
+                                    stepSize: 10, // Specify the step size here
+                                    // precision: 0 // Adjust tick precision as needed
+                                },
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'black', // Warna angka (ticks) sumbu X
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Menghilangkan legenda
+                        }
+                    }
+                }
+            });
+        }
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            console.log('Date range selected: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+
+            const startDate = start.format('YYYY-MM-DD');
+            const endDate = end.format('YYYY-MM-DD');
+
+            fetch(`/data_range?start=${startDate}&end=${endDate}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Data received:', data);
+                    renderChart('myChart', data);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        $(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                const startDate = start.format('YYYY-MM-DD');
+                const endDate = end.format('YYYY-MM-DD');
+
+                fetch(`/data_range?start=${startDate}&end=${endDate}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Data received:', data);
+                        renderChart('myChart', data);
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+            cb(start, end);
+        });
+    </script>
+
+    <script>
+        // Initial chart rendering function
+        document.addEventListener('DOMContentLoaded', function () {
+            renderMultiLineChart(); // Render chart initially with empty data
+        });
+
+        // Event listener for month picker change
+        document.getElementById('month-picker').addEventListener('change', function () {
+            const selectedMonth = this.value.substring(5, 7); // Extract month part from YYYY-MM format
+            const selectedYear = this.value.substring(0, 4); // Extract year part from YYYY-MM format
+
+            fetch(`/data_month?month=${selectedMonth}&year=${selectedYear}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateMultiLineChart(data); // Update chart with new data
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+
+        // Function to render or update multi-line chart
+        function renderMultiLineChart() {
+            const ctx = document.getElementById('myChartCompare').getContext('2d');
+            window.myLine = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to update existing chart with new data
+        function updateMultiLineChart(chartData) {
+            const chart = window.myLine;
+
+            // Clear previous data
+            chart.data.labels = [];
+            chart.data.datasets = [];
+
+            // Populate with new data
+            Object.keys(chartData).forEach(platform => {
+                chart.data.labels = chartData[platform].labels;
+                chart.data.datasets.push({
+                    label: platform,
+                    data: chartData[platform].data,
+                    fill: false,
+                    borderColor: getRandomColor(),
+                    tension: 0.1
+                });
+            });
+
+            chart.update(); // Update chart with new data
+        }
+
+        // Function to generate random colors for chart lines
+        function getRandomColor() {
+            return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearPicker = document.getElementById('year-picker');
+            const chartId = 'myChartYearlyComparison';
+
+            // Function to fetch data for the selected year and render the chart
+            function fetchDataAndRender(year) {
+                fetch(`/data_year?year=${year}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        renderYearlyComparisonChart(chartId, data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        // alert('Failed to fetch data. Please try again.');
+                    });
+            }
+
+            // Initial fetch when page loads
+            const initialYear = new Date().getFullYear();
+            fetchDataAndRender(initialYear);
+
+            // Event listener for year picker change
+            yearPicker.addEventListener('change', function () {
+                const selectedYear = yearPicker.value;
+                fetchDataAndRender(selectedYear);
+            });
+
+            // Function to render the yearly comparison chart
+            function renderYearlyComparisonChart(chartId, data) {
+                const platforms = ['artikel', 'berita', 'instagram', 'tiktok', 'website', 'whatsapp', 'youtube'];
+                const ctx = document.getElementById(chartId).getContext('2d');
+
+                // Months and their respective names (customize as needed)
+                const monthNames = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+
+                // Prepare datasets for Chart.js
+                const datasets = platforms.map(platform => ({
+                    label: platform.charAt(0).toUpperCase() + platform.slice(1), // Capitalize first letter
+                    data: monthNames.map(monthName => data.find(item => item.month_name === monthName)[platform] || 0), // Map data for each platform
+                    fill: false,
+                    borderColor: getRandomColor(),
+                    tension: 0.1
+                }));
+
+                // Render the chart using Chart.js
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: monthNames, // Use month names as labels
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    precision: 0 // Adjust tick precision as needed
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Function to generate random colors (for demonstration purposes)
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+</body>
+
+</html>

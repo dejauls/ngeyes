@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/output.css" rel="stylesheet">
+    <title>Hello!</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+</head>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<body class="bg-white text-black dark:bg-gray-800 dark:text-white transition duration-300">
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar"
+        class="flex flex-col fixed top-0 pt-8 left-0 w-72 h-full bg-gradient-to-tl from-black via-gray-900 to-black z-50 transition-all duration-300">
+
+        <ul class="space-y-4">
+            <li>
+                <div class="mb-auto flex justify-center ">
+                    <img src="/static/img/logobar.png" alt="logo reclea" class="w-28 h-auto mb-4">
+                </div>
+            </li>
+            <li class="px-4 py-2 bg-[#DBD8E3] shadow-md  ">
+                <a href="#" class="flex items-center space-x-2">
+                    <i class='bx bxs-dashboard '></i>
+                    <span class="dark:text-black">Dashboard</span>
+                </a>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-200  shadow-md  bg-gray-600">
+                <a href="#" class="flex items-center space-x-2 ">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
+        </ul>
+        <div class="mt-auto -mb-6 flex justify-center">
+            <img src="/static/img/NinjaFlylogo.png" alt="logo ninja" class="w-28 h-28">
+        </div>
+        <a href="#" class=" flex justify-center items-center space-x-2">
+            <span class="font-bold hover:border hover:border-red-500 text-white">Ninjafly</span>
+        </a>
+    </section>
+    <!-- SIDEBAR -->
+    
+
+    <!-- CONTENT -->
+    <section id="content" class="relative ml-72 p-6 bg-gradient-to-tr from-black via-gray-900 to-black">
+        <div id="particles" class="w-full h-full absolute inset-0 -z-1"></div>
+
+        <!-- NAVBAR -->
+        <!-- <nav class="relative bg-gray-200 p-4 shadow flex items-center justify-between">
+            
+            <div class="flex items-center">
+                <i class='bx bx-menu text-xl cursor-pointer hidden '></i>
+                <a href="#" class="ml-4 text-black ">Get all your performance here</a>
+            </div>
+            <label class="inline-flex items-center cursor-pointer ml-auto">
+                <input id="switch-mode" type="checkbox" value="" class="sr-only peer">
+                <div
+                    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                </div>
+            </label>
+        </nav> -->
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main class="mt-6 ml-4">
+            <div class="mb-6">
+                <h1 class="text-3xl text-white font-bold">Dashboard</h1>
+                <ul class="flex space-x-2 text-white ">
+                    <li>visitor link reclea</li>
+                </ul>
+            </div>
+
+            <ul class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow-3xl rounded-lg">
+                    <i class='bx bxl-instagram text-4xl bg-pink-100 text-pink-600 p-2 rounded-full'></i>
+                    <div class="text-black  ">
+                        <h3 class="text-2xl font-bold" id="instagramCount">Loading...</h3>
+                        <p>Instagram</p>
+                    </div>
+                </li>
+
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                    <i class='bx bxl-whatsapp text-4xl bg-green-100 text-green-600 p-2 rounded-full'></i>
+                    <div class="text-black  ">
+                        <h3 class="text-2xl font-bold" id="whatsappCount">Loading...</h3>
+                        <p>Whatsapp</p>
+                    </div>
+                </li>
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                    <i class='bx bxl-tiktok text-4xl bg-black text-white p-2 rounded-full'></i>
+                    <div class="text-black ">
+                        <h3 class="text-2xl font-bold" id="tiktokCount">Loading...</h3>
+                        <p>Tiktok</p>
+                    </div>
+                </li>
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                    <i class='bx bxl-youtube text-4xl bg-red-100 text-red-600 p-2 rounded-full'></i>
+                    <div class="text-black ">
+                        <h3 class="text-2xl font-bold" id="youtubeCount">Loading...</h3>
+                        <p>Youtube</p>
+                    </div>
+                </li>
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                    <i class='bx bxl-chrome text-4xl bg-blue-100 text-blue-600 p-2 rounded-full'></i>
+                    <div class="text-black">
+                        <h3 class="text-2xl font-bold" id="websiteCount">Loading...</h3>
+                        <p>Website</p>
+                    </div>
+                </li>
+                <li
+                    class="bg-zinc-100 p-4 flex items-center space-x-4 shadow rounded-lg">
+                    <i class='bx bxs-file-archive text-4xl bg-gray-100 text-gray-600 p-2 rounded-full'></i>
+                    <div class="text-black ">
+                        <h3 class="text-2xl font-bold" id="beritaCount">Loading...</h3>
+                        <p>Berita</p>
+                    </div>
+                </li>
+                <li
+                    class=" bg-zinc-100 p-4 flex items-center space-x-4 shadow-lg shadow-amber-600 rounded-lg">
+                    <i class='bx bx-task text-4xl bg-yellow-100 text-yellow-600 p-2 rounded-full'></i>
+                    <div class="text-black ">
+                        <h3 class="text-2xl font-bold" id="artikelCount">Loading...</h3>
+                        <p>Why Reclea</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="  dark:bg-gray-800">
+                <div class="flex flex-row  h-full mt-10">
+                    <!-- Div di kiri -->
+                    <div id="left" class="relative w-2/3 p-4 rounded-lg bg-zinc-100 h-full flex flex-col ">
+                        <h2 class="text-black text-lg font-semibold ml-2 mb-4">Jumlah Klik Pada Hari Ini</h2>
+                        <canvas id="dailyChart" class="w-full h-full"></canvas>
+                    </div>
+                    
+                    <!-- Div di kanan -->
+                    <div id="chart"
+                        class="relative w-1/3 ml-4 bg-zinc-100 shadow rounded-lg">
+                        <h2 class="text-black text-lg font-semibold ml-2">Berikut data mingguan</h2>
+                        <canvas id="weeklyChart" style="width: 100%; height: 80%;" class="mt-4"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="flex mt-8 relative justify-between ">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start  h-auto w-full max-w-6xl">
+                    <div class="bg-gray-600 shadow-lg rounded-lg p-6">
+                        <h2 class="text-lg font-semibold mb-2">Berikut data bulanan</h2>
+                        <canvas id="monthlyChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+                <div class="flex  h-svh w-96 bg-white outline outline-white">
+                    <iframe class="w-full" src="https://visit-linkreclea.glitch.me/" title="description" width=”” height=””></iframe>
+                </div>
+            </div>
+            
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/instagram_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('instagramCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/whatsapp_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('whatsappCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/tiktok_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('tiktokCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/youtube_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('youtubeCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/website_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('websiteCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/berita_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('beritaCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/artikel_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('artikelCount').textContent = data.count;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/data_month')
+                .then(response => response.json())
+                .then(data => {
+                    const platformCounts = getPlatformCounts(data);
+                    renderChart('monthlyChart', platformCounts);
+                })
+                .catch(error => console.error('Error:', error));
+
+            fetch('/data_week')
+                .then(response => response.json())
+                .then(data => {
+                    const platformCounts = getPlatformCounts(data);
+                    renderChart('weeklyChart', platformCounts);
+                })
+                .catch(error => console.error('Error:', error));
+
+            fetch('/data_today')
+                .then(response => response.json())
+                .then(data => {
+                    const platformCounts = getPlatformCounts(data);
+                    renderChart('dailyChart', platformCounts);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        function getPlatformCounts(data) {
+            const counts = {
+                instagram: 0,
+                whatsapp: 0,
+                tiktok: 0,
+                youtube: 0,
+                artikel: 0,
+                berita: 0,
+                website: 0
+            };
+            data.forEach(item => {
+                if (counts[item.platform] !== undefined) {
+                    counts[item.platform]++;
+                }
+            });
+            return counts;
+        }
+
+        function renderChart(chartId, platformCounts) {
+            const ctx = document.getElementById(chartId).getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Instagram', 'WhatsApp', 'TikTok', 'YouTube', 'Artikel', 'Berita', 'Website'],
+                    datasets: [{
+                        data: [
+                            platformCounts.instagram,
+                            platformCounts.whatsapp,
+                            platformCounts.tiktok,
+                            platformCounts.youtube,
+                            platformCounts.artikel,
+                            platformCounts.berita,
+                            platformCounts.website
+                        ],
+                        backgroundColor: [
+                            'rgb(255, 51, 0)',
+                            'rgba(18, 161, 49, 0.9)',
+                            'rgba(34, 40, 34, 1.0)',
+                            'rgba(210, 38, 30, 1.0)',
+                            'rgba(95, 150, 198, 0.9)',
+                            'rgba(85, 86, 47, 0.75)',
+                            'rgba(107, 184, 35, 1.0)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 51, 0)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(34, 40, 34, 1.0)',
+                            'rgba(210, 38, 30, 1.0)',
+                            'rgba(95, 150, 198, 0.9)',
+                            'rgba(85, 86, 47, 0.75)',
+                            'rgba(107, 184, 35, 1.0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'black', // Warna angka (ticks) sumbu Y
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'black', // Warna angka (ticks) sumbu X
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Menghilangkan legenda
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <!-- <script>
+        function createChart(isDarkMode) {
+            var ctx = document.getElementById('barChart').getContext('2d');
+            var backgroundColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            var borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
+            var gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            var tickColor = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)';
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Instagram', 'Whatsapp', 'Youtube', 'website', 'artikel', 'berita'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [10, 15, 7, 9, 22, 7, 3],
+                        backgroundColor: [
+                            'rgb(255, 51, 0)',   
+                            'rgba(0, 255, 0, 1)',    // Hijau
+                            'rgba(204, 0, 0, 1)',   // Merah
+                            'rgb(255, 51, 0)',   
+                            'rgba(0, 255, 0, 1)',    // Hijau
+                            'rgba(204, 0, 0, 1)',   // Merah
+                            'rgba(0, 255, 0, 1)'   // Hijau
+                        ],
+                        borderColor: [
+                            'rgba(255, 165, 0, 1)',  // Oranye
+                            'rgba(0, 255, 0, 1)',    // Hijau
+                            'rgba(204, 0, 0, 1)',   // Merah
+                            'rgb(255, 51, 0)',   
+                            'rgba(0, 255, 0, 1)',    // Hijau
+                            'rgba(204, 0, 0, 1)',   // Merah
+                            'rgba(0, 255, 0, 1)'   // Hijau
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            grid: {
+                                color: gridColor,
+                            },
+                            ticks: {
+                                color: tickColor,
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: gridColor,
+                            },
+                            ticks: {
+                                color: tickColor,
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: tickColor
+                            }
+                        }
+                    }
+                }
+            });
+            return myChart;
+        }
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            var isDarkMode = document.documentElement.classList.contains('dark');
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = createChart(isDarkMode);
+        }
+
+        var myChart = createChart(document.documentElement.classList.contains('dark'));
+
+        // Listen for dark mode toggle
+        var observer = new MutationObserver(toggleDarkMode);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    </script> -->
+    <script>
+        function createChart(isDarkMode) {
+            // Replace this with your actual chart creation code
+            console.log("Chart created with dark mode: " + isDarkMode);
+            return {
+                destroy: function () {
+                    console.log("Chart destroyed");
+                }
+            };
+        }
+
+        function toggleDarkMode() {
+            var isDarkMode = document.documentElement.classList.contains('dark');
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = createChart(isDarkMode);
+        }
+
+        var myChart = createChart(document.documentElement.classList.contains('dark'));
+
+        // Listen for dark mode toggle
+        var observer = new MutationObserver(toggleDarkMode);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+        // Dark mode toggle
+        const switchMode = document.getElementById('switch-mode');
+        const htmlElement = document.documentElement;
+
+        switchMode.addEventListener('change', () => {
+            if (switchMode.checked) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <script src="/static/particles.js"></script>
+
+
+</body>
+
+</html>
